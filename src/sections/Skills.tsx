@@ -69,9 +69,9 @@ const Skills: React.FC = () => {
     <section
       id="skills"
       ref={ref}
-      className="relative py-32 px-6 lg:px-20 text-kinetic-fg overflow-hidden"
+      className="relative py-20 lg:py-32 px-4 lg:px-20 text-kinetic-fg overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full" suppressHydrationWarning={true}>
+      <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10 w-full" suppressHydrationWarning={true}>
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -81,7 +81,7 @@ const Skills: React.FC = () => {
           <span className="font-display text-sm font-bold uppercase tracking-widest text-kinetic-accent">
             Stack & Weapons
           </span>
-          <h2 className="font-display text-5xl md:text-8xl font-bold uppercase tracking-tighter leading-none italic">
+          <h2 className="font-display text-[clamp(2.5rem,8vw,6rem)] lg:text-8xl font-bold uppercase tracking-tighter leading-[0.9] lg:leading-none italic">
             Technologies<br />
             <span className="text-kinetic-border">I work with</span>
           </h2>
@@ -89,11 +89,11 @@ const Skills: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-2 border-kinetic-border bg-kinetic-border gap-px">
           {skillGroups.map((group, groupIdx) => (
-            <div key={group.category} className="bg-kinetic-bg p-8 md:p-12 flex flex-col gap-12 group">
+            <div key={group.category} className="bg-kinetic-bg p-6 lg:p-12 flex flex-col gap-8 lg:gap-12 group">
               <div className="flex items-center justify-between border-b-2 border-kinetic-border pb-4">
                 <div className="flex items-center gap-4">
                   <span className="text-kinetic-accent">{group.categoryIcon}</span>
-                  <h3 className="font-display text-2xl md:text-3xl font-bold uppercase tracking-tighter">
+                  <h3 className="font-display text-xl lg:text-3xl font-bold uppercase tracking-tighter">
                     {group.category}
                   </h3>
                 </div>
@@ -130,7 +130,7 @@ const Skills: React.FC = () => {
 
       {/* Decorative Massive Number */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/3 select-none pointer-events-none opacity-5">
-        <span className="font-display text-[25rem] font-bold leading-none rotate-90">
+        <span className="font-display text-[12rem] lg:text-[25rem] font-bold leading-none rotate-90">
           STACK
         </span>
       </div>

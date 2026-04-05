@@ -58,9 +58,9 @@ const Projects: React.FC = () => {
     <section
       id="projects"
       ref={ref}
-      className="relative py-32 px-6 lg:px-20 text-kinetic-fg overflow-hidden"
+      className="relative py-20 lg:py-32 px-4 lg:px-20 text-kinetic-fg overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full" suppressHydrationWarning={true}>
+      <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10 w-full" suppressHydrationWarning={true}>
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -70,7 +70,7 @@ const Projects: React.FC = () => {
           <span className="font-display text-sm font-bold uppercase tracking-widest text-kinetic-accent">
             Selected Works
           </span>
-          <h2 className="font-display text-5xl md:text-8xl font-bold uppercase tracking-tighter leading-none">
+          <h2 className="font-display text-[clamp(2.5rem,8vw,6rem)] lg:text-8xl font-bold uppercase tracking-tighter leading-[0.9] lg:leading-none">
             Things I&apos;ve<br />
             <span className="text-kinetic-accent italic">Built</span>
           </h2>
@@ -118,48 +118,48 @@ const Projects: React.FC = () => {
           <motion.div
             initial={{ scale: 0.9, y: 20 }}
             animate={{ scale: 1, y: 0 }}
-            className="relative w-full max-w-4xl bg-kinetic-bg border-4 border-kinetic-accent p-8 md:p-16 flex flex-col gap-8 shadow-[20px_20px_0px_#DFE104]"
+            className="relative w-full max-w-4xl bg-kinetic-bg border-2 md:border-4 border-kinetic-accent p-6 sm:p-8 lg:p-16 flex flex-col gap-6 lg:gap-8 shadow-[10px_10px_0px_#DFE104] md:shadow-[20px_20px_0px_#DFE104] max-h-[90vh] overflow-y-auto"
           >
             <button 
               onClick={() => setSelectedProject(null)}
-              className="absolute top-8 right-8 p-2 hover:bg-kinetic-accent hover:text-kinetic-bg transition-colors border-2 border-transparent hover:border-kinetic-accent"
+              className="absolute top-4 right-4 sm:top-8 sm:right-8 p-2 hover:bg-kinetic-accent hover:text-kinetic-bg transition-colors border-2 border-transparent hover:border-kinetic-accent"
             >
-              <X className="h-8 w-8" />
+              <X className="h-6 w-6 lg:h-8 lg:w-8" />
             </button>
 
-            <div className="flex flex-col gap-4">
-              <span className="font-display text-sm font-bold uppercase tracking-widest text-kinetic-accent">
+            <div className="flex flex-col gap-2">
+              <span className="font-display text-xs lg:text-sm font-bold uppercase tracking-widest text-kinetic-accent">
                 Project Detail
               </span>
-              <h3 className="font-display text-5xl md:text-7xl font-bold uppercase tracking-tighter text-kinetic-accent">
+              <h3 className="font-display text-3xl sm:text-5xl lg:text-7xl font-bold uppercase tracking-tighter text-kinetic-fg">
                 {selectedProject.title}
               </h3>
             </div>
 
-            <p className="font-sans text-xl md:text-2xl text-kinetic-muted-foreground leading-tight max-w-3xl">
+            <p className="font-sans text-lg lg:text-2xl text-kinetic-muted-foreground leading-tight max-w-3xl">
               {selectedProject.fullDesc}
             </p>
 
             <div className="flex flex-col gap-4">
-              <span className="font-display text-xs font-bold uppercase tracking-widest text-kinetic-muted">Tech Stack</span>
-              <div className="flex flex-wrap gap-3">
+              <span className="font-display text-[10px] font-bold uppercase tracking-widest text-kinetic-muted">Tech Stack</span>
+              <div className="flex flex-wrap gap-2 lg:gap-3">
                 {selectedProject.tags.map((tag) => (
-                  <span key={tag} className="font-display text-sm font-bold uppercase tracking-widest border-2 border-kinetic-border px-4 py-2 text-kinetic-fg">
+                  <span key={tag} className="font-display text-[10px] lg:text-sm font-bold uppercase tracking-widest border-2 border-kinetic-border px-3 py-1.5 lg:px-4 lg:py-2 text-kinetic-fg">
                     {tag}
                   </span>
                 ))}
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-4 mt-8">
+            <div className="flex flex-col sm:flex-row gap-4 mt-4 lg:mt-8">
               {selectedProject.live && (
-                <KineticButton variant="primary" size="lg" onClick={() => window.open(selectedProject.live, "_blank")}>
-                  Live Demo <ExternalLink className="ml-4 h-6 w-6" />
+                <KineticButton variant="primary" size="lg" onClick={() => window.open(selectedProject.live, "_blank")} className="w-full sm:w-auto">
+                  Live Demo <ExternalLink className="ml-4 h-5 w-5 lg:h-6 lg:w-6" />
                 </KineticButton>
               )}
               {selectedProject.github && (
-                <KineticButton variant="outline" size="lg" onClick={() => window.open(selectedProject.github, "_blank")}>
-                  Source Code <Github className="ml-4 h-6 w-6" />
+                <KineticButton variant="outline" size="lg" onClick={() => window.open(selectedProject.github, "_blank")} className="w-full sm:w-auto">
+                  Source Code <Github className="ml-4 h-5 w-5 lg:h-6 lg:w-6" />
                 </KineticButton>
               )}
             </div>
@@ -169,7 +169,7 @@ const Projects: React.FC = () => {
 
       {/* Background Graphic */}
       <div className="absolute top-0 right-0 select-none pointer-events-none opacity-5">
-        <span className="font-display text-[30rem] font-bold leading-none tracking-tighter uppercase">
+        <span className="font-display text-[12rem] lg:text-[30rem] font-bold leading-none tracking-tighter uppercase">
           Work
         </span>
       </div>

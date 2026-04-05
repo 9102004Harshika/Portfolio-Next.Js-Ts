@@ -15,10 +15,10 @@ const Landing: React.FC = () => {
   return (
     <section
       id="landing"
-      className="relative min-h-[90vh] text-kinetic-fg overflow-hidden flex flex-col justify-center py-32 px-6 lg:px-20"
+      className="relative min-h-[90vh] text-kinetic-fg overflow-hidden flex flex-col justify-center py-20 lg:py-32 px-4 lg:px-20"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full" suppressHydrationWarning={true}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10 w-full" suppressHydrationWarning={true}>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Side: Massive Typography */}
           <div className="lg:col-span-8 flex flex-col gap-8">
             <motion.div
@@ -34,7 +34,7 @@ const Landing: React.FC = () => {
                 </span>
               </div>
 
-              <h1 className="font-display text-[clamp(2.5rem,10vw,8rem)] font-bold uppercase tracking-tighter leading-none mix-blend-difference">
+              <h1 className="font-display text-[clamp(3.5rem,12vw,8rem)] font-bold uppercase tracking-tighter leading-[0.85] lg:leading-none mix-blend-difference">
                 Harsh<span className="italic text-kinetic-accent">ika</span><span className="text-kinetic-border">.</span>
               </h1>
             </motion.div>
@@ -54,17 +54,17 @@ const Landing: React.FC = () => {
               transition={{ type: "spring", stiffness: 100, damping: 20, mass: 1, delay: 0.4 }}
               className="flex flex-wrap gap-6"
             >
-              <KineticButton variant="primary" size="lg" onClick={() => window.location.hash = "#projects"}>
+              <KineticButton variant="primary" size="lg" onClick={() => window.location.hash = "#projects"} className="w-full sm:w-auto">
                 View Projects <ArrowRight className="ml-4 h-6 w-6" />
               </KineticButton>
-              <KineticButton variant="outline" size="lg" onClick={() => window.location.hash = "#contact"}>
+              <KineticButton variant="outline" size="lg" onClick={() => window.location.hash = "#contact"} className="w-full sm:w-auto">
                 Get In Touch
               </KineticButton>
             </motion.div>
           </div>
 
           {/* Right Side: Dynamic Character Frame */}
-          <div className="lg:col-span-4 relative h-[500px] md:h-[600px] lg:h-[700px]">
+          <div className="lg:col-span-4 relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] order-first lg:order-last">
             <motion.div
               style={{ y: y1 }}
               initial={{ rotate: -12, opacity: 0 }}
@@ -86,8 +86,8 @@ const Landing: React.FC = () => {
             </motion.div>
 
             {/* Background Decorative Numbers */}
-            <div className="absolute -bottom-20 -right-20 select-none pointer-events-none opacity-10">
-              <span className="font-display text-[20rem] font-bold text-kinetic-muted leading-none">
+            <div className="absolute -bottom-10 -right-10 lg:-bottom-20 lg:-right-20 select-none pointer-events-none opacity-10">
+              <span className="font-display text-[10rem] lg:text-[20rem] font-bold text-kinetic-muted leading-none">
                 04
               </span>
             </div>

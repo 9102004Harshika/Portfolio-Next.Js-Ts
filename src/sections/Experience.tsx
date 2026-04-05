@@ -33,9 +33,9 @@ const Experience: React.FC = () => {
     <section
       id="experience"
       ref={ref}
-      className="relative py-32 px-6 lg:px-20 text-kinetic-fg overflow-hidden"
+      className="relative py-20 lg:py-32 px-4 lg:px-20 text-kinetic-fg overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full" suppressHydrationWarning={true}>
+      <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10 w-full" suppressHydrationWarning={true}>
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -45,7 +45,7 @@ const Experience: React.FC = () => {
           <span className="font-display text-sm font-bold uppercase tracking-widest text-kinetic-accent">
             Professional Path
           </span>
-          <h2 className="font-display text-5xl md:text-8xl font-bold uppercase tracking-tighter leading-none italic">
+          <h2 className="font-display text-[clamp(2.5rem,8vw,6rem)] lg:text-8xl font-bold uppercase tracking-tighter leading-[0.9] lg:leading-none italic">
             Experience<br />
             <span className="text-kinetic-border">Timeline</span>
           </h2>
@@ -58,25 +58,25 @@ const Experience: React.FC = () => {
               initial={{ opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ type: "spring", stiffness: 100, damping: 20, delay: idx * 0.15 }}
-              className="group relative grid grid-cols-1 md:grid-cols-12 items-center py-12 px-4 md:px-8 hover:bg-kinetic-accent transition-colors duration-300 hover:text-black"
+              className="group relative grid grid-cols-1 lg:grid-cols-12 items-start lg:items-center py-8 lg:py-12 px-4 lg:px-8 hover:bg-kinetic-accent transition-colors duration-300 hover:text-black"
             >
               {/* Year/Index */}
-              <div className="md:col-span-2 font-display text-xl font-bold text-kinetic-muted-foreground group-hover:text-black/80 transition-colors">
+              <div className="lg:col-span-2 font-display text-lg lg:text-xl font-bold text-kinetic-muted-foreground group-hover:text-black/80 transition-colors mb-2 lg:mb-0">
                 {exp.duration.split(" — ")[0]}
               </div>
 
               {/* Role & Company */}
-              <div className="md:col-span-5 flex flex-col">
-                <h3 className="font-display text-2xl md:text-4xl font-bold uppercase tracking-tighter text-kinetic-fg group-hover:text-black transition-colors">
+              <div className="lg:col-span-5 flex flex-col mb-4 lg:mb-0">
+                <h3 className="font-display text-2xl lg:text-4xl font-bold uppercase tracking-tighter text-kinetic-fg group-hover:text-black transition-colors">
                   {exp.role}
                 </h3>
-                <span className="font-display text-sm font-bold uppercase tracking-widest text-kinetic-accent group-hover:text-black/80 transition-colors">
+                <span className="font-display text-xs lg:text-sm font-bold uppercase tracking-widest text-kinetic-accent group-hover:text-black/80 transition-colors">
                   {exp.company}
                 </span>
               </div>
 
               {/* Description */}
-              <div className="md:col-span-5 mt-4 md:mt-0 font-sans text-lg md:text-xl text-kinetic-muted-foreground group-hover:text-black/80 transition-colors leading-tight">
+              <div className="lg:col-span-5 font-sans text-base lg:text-xl text-kinetic-muted-foreground group-hover:text-black/80 transition-colors leading-tight">
                 {exp.description}
               </div>
 
@@ -91,7 +91,7 @@ const Experience: React.FC = () => {
 
       {/* Background Graphic */}
       <div className="absolute top-0 left-0 -translate-x-1/3 select-none pointer-events-none opacity-5">
-        <span className="font-display text-[25rem] font-bold leading-none tracking-tighter uppercase -rotate-90">
+        <span className="font-display text-[12rem] lg:text-[25rem] font-bold leading-none tracking-tighter uppercase -rotate-90">
           HISTORY
         </span>
       </div>

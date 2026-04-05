@@ -18,10 +18,10 @@ const About: React.FC = () => {
     <section
       id="about"
       ref={ref}
-      className="relative py-32 px-6 lg:px-20 text-kinetic-fg overflow-hidden"
+      className="relative py-20 lg:py-32 px-4 lg:px-20 text-kinetic-fg overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full" suppressHydrationWarning={true}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10 w-full" suppressHydrationWarning={true}>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Side: Story */}
           <div className="lg:col-span-7 flex flex-col gap-12 relative">
             <motion.div
@@ -33,7 +33,7 @@ const About: React.FC = () => {
               <span className="font-display text-sm font-bold uppercase tracking-widest text-kinetic-accent">
                 About Me
               </span>
-              <h2 className="font-display text-5xl md:text-7xl font-bold uppercase tracking-tighter leading-none">
+              <h2 className="font-display text-[clamp(2.5rem,8vw,5rem)] lg:text-7xl font-bold uppercase tracking-tighter leading-[0.9] lg:leading-none">
                 Building software that<br />
                 <span className="text-kinetic-accent">makes a difference.</span>
               </h2>
@@ -88,8 +88,8 @@ const About: React.FC = () => {
             </motion.div>
 
             {/* Background Massive Number */}
-            <div className="absolute -top-12 -right-12 select-none pointer-events-none opacity-5">
-              <span className="font-display text-[15rem] font-bold leading-none">
+            <div className="absolute -top-6 -right-6 lg:-top-12 lg:-right-12 select-none pointer-events-none opacity-5">
+              <span className="font-display text-[8rem] lg:text-[15rem] font-bold leading-none">
                 ME
               </span>
             </div>
@@ -101,20 +101,20 @@ const About: React.FC = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.4 }}
-          className="mt-40 w-full flex justify-center"
+          className="mt-20 lg:mt-40 w-full flex justify-center"
           suppressHydrationWarning
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl" suppressHydrationWarning>
             {stats.map((stat, i) => (
-              <div key={i} className="flex flex-col items-center text-center gap-4 py-20 px-8 lg:py-[40px] lg:px-12 border-2 border-kinetic-border hover:border-kinetic-accent hover:bg-kinetic-accent hover:text-black transition-all duration-500 group relative overflow-hidden" suppressHydrationWarning>
-                <div className="font-display text-6xl lg:text-7xl font-bold group-hover:scale-110 transition-transform duration-500 relative z-10 leading-none">
+              <div key={i} className="flex flex-col items-center text-center gap-4 py-12 px-6 lg:py-[40px] lg:px-12 border-2 border-kinetic-border hover:border-kinetic-accent hover:bg-kinetic-accent hover:text-black transition-all duration-500 group relative overflow-hidden" suppressHydrationWarning>
+                <div className="font-display text-5xl lg:text-7xl font-bold group-hover:scale-110 transition-transform duration-500 relative z-10 leading-none">
                   {stat.value}
                 </div>
-                <div className="font-display text-sm lg:text-lg font-bold uppercase tracking-[0.2em] relative z-10 transition-colors duration-500 group-hover:text-black">
+                <div className="font-display text-xs lg:text-lg font-bold uppercase tracking-[0.2em] relative z-10 transition-colors duration-500 group-hover:text-black">
                   {stat.label}
                 </div>
                 {/* Decorative background number */}
-                <span className="absolute -bottom-6 -right-6 font-display text-[8rem] font-bold opacity-[0.03] group-hover:opacity-10 transition-opacity group-hover:text-black">
+                <span className="absolute -bottom-6 -right-6 font-display text-[6rem] lg:text-[8rem] font-bold opacity-[0.03] group-hover:opacity-10 transition-opacity group-hover:text-black">
                   {stat.number}
                 </span>
               </div>

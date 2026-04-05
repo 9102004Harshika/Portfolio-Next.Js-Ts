@@ -315,4 +315,8 @@ a {
   .container {
     padding: 0 16px;
   }
+
+  body {
+    margin-left: 50px;
+  }
 }

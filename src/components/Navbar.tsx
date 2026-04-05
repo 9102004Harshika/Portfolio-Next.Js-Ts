@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Terminal, Cpu, Activity, Clock } from "lucide-react";
+import { Terminal, Cpu, Activity, Clock, Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "About", href: "#about", code: "01" },
@@ -16,6 +16,7 @@ const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [time, setTime] = useState("");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const updateTime = () => {
@@ -88,8 +89,8 @@ const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {/* Main Navigation */}
-        <div className="flex items-center gap-1 md:gap-2">
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-1 md:gap-2">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.replace("#", "");
 
@@ -98,7 +99,7 @@ const Navbar: React.FC = () => {
                 key={link.href}
                 href={link.href}
                 className={`
-                  relative min-w-[90px] md:min-w-[130px] px-6 md:px-8 py-3.5 md:py-4 rounded-full font-display text-xs md:text-base font-bold uppercase tracking-[0.15em]
+                  relative min-w-[90px] md:min-w-[130px] px-6 md:px-8 py-3.5 md:py-4 rounded-full font-display text-xs md:text-sm lg:text-base font-bold uppercase tracking-[0.15em]
                   transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden group flex items-center justify-center
                   ${isActive ? "text-black" : "text-kinetic-muted-foreground hover:text-kinetic-fg"}
                 `}
@@ -132,6 +133,14 @@ const Navbar: React.FC = () => {
           })}
         </div>
 
+        {/* Mobile Menu Toggle */}
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden flex items-center justify-center h-10 w-10 border border-kinetic-border bg-kinetic-bg text-kinetic-accent hover:bg-kinetic-accent hover:text-black transition-colors rounded-lg"
+        >
+          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
+
         {/* HUD: Metadata / Time */}
         <div className="hidden sm:flex items-center gap-4 pl-4 border-l border-kinetic-border/50">
           <div className="flex flex-col items-end">
@@ -146,6 +155,57 @@ const Navbar: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "100vh" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="fixed inset-0 bg-kinetic-bg/98 backdrop-blur-xl z-[90] flex flex-col pt-32 px-8 md:hidden overflow-hidden"
+          >
+            <div className="flex flex-col gap-4">
+              <span className="font-display text-[10px] font-bold text-kinetic-accent tracking-widest uppercase mb-4">Navigation_Menu</span>
+              <div className="flex flex-col gap-2">
+                {navLinks.map((link, idx) => (
+                  <motion.a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="group flex items-center justify-between py-6 border-b border-kinetic-border"
+                  >
+                    <div className="flex flex-col">
+                      <span className="font-display text-xs font-bold text-kinetic-accent mb-1">[{link.code}]</span>
+                      <span className="font-display text-4xl font-black uppercase tracking-tighter group-hover:text-kinetic-accent transition-colors">
+                        {link.label}
+                      </span>
+                    </div>
+                    <div className="h-10 w-10 border border-kinetic-border flex items-center justify-center group-hover:bg-kinetic-accent group-hover:text-black transition-colors rounded-full">
+                      <Terminal size={18} />
+                    </div>
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile Footer Meta */}
+            <div className="mt-auto pb-12 border-t border-kinetic-border pt-8 flex flex-col gap-4">
+              <div className="flex items-center justify-between text-kinetic-muted">
+                <span className="font-display text-[8px] font-bold tracking-widest uppercase">System_State: Stable</span>
+                <span className="font-display text-[8px] font-bold tracking-widest uppercase">{time} [UTC]</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="h-2 w-2 rounded-full bg-kinetic-accent animate-pulse" />
+                <span className="font-display text-[10px] font-black text-kinetic-fg tracking-tighter italic">DESIGNED_FOR_PERFORMANCE</span>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Decorative Scanline inside navbar area */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-kinetic-accent/20 to-transparent pointer-events-none" />

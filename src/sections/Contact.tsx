@@ -19,9 +19,9 @@ const Contact: React.FC = () => {
     <section
       id="contact"
       ref={ref}
-      className="relative py-32 px-6 lg:px-20 text-kinetic-fg overflow-hidden"
+      className="relative py-20 lg:py-32 px-4 lg:px-20 text-kinetic-fg overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full" suppressHydrationWarning={true}>
+      <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10 w-full" suppressHydrationWarning={true}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           {/* Left Side: Headline & Socials */}
           <div className="lg:col-span-5 flex flex-col gap-12">
@@ -34,11 +34,11 @@ const Contact: React.FC = () => {
               <span className="font-display text-sm font-bold uppercase tracking-widest text-kinetic-accent">
                 Available Now
               </span>
-              <h2 className="font-display text-5xl md:text-8xl font-bold uppercase tracking-tighter leading-none italic">
+              <h2 className="font-display text-[clamp(3.5rem,10vw,8rem)] lg:text-8xl font-bold uppercase tracking-tighter leading-[0.9] lg:leading-none italic">
                 Let&apos;s<br />
                 <span className="text-kinetic-accent">Connect</span>
               </h2>
-              <p className="font-sans text-xl md:text-2xl text-kinetic-muted-foreground leading-tight max-w-sm mt-4">
+              <p className="font-sans text-lg lg:text-2xl text-kinetic-muted-foreground leading-tight max-w-sm mt-4">
                 Have a project in mind or want to collaborate? I&apos;d love to hear from you.
               </p>
             </motion.div>
@@ -52,11 +52,11 @@ const Contact: React.FC = () => {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-4 border-2 border-kinetic-border hover:bg-kinetic-accent hover:text-black transition-all duration-300 group"
+                    className="flex items-center gap-3 p-4 border-2 border-kinetic-border hover:bg-kinetic-accent hover:text-black transition-all duration-300 group flex-1 md:flex-none justify-center md:justify-start"
                   >
                     {link.icon}
-                    <span className="font-display font-bold uppercase tracking-tighter">{link.label}</span>
-                    <ArrowUpRight className="opacity-0 group-hover:opacity-100 transition-opacity" size={16} />
+                    <span className="font-display font-bold uppercase tracking-tighter text-sm lg:text-base">{link.label}</span>
+                    <ArrowUpRight className="hidden md:block opacity-0 group-hover:opacity-100 transition-opacity" size={16} />
                   </a>
                 ))}
               </div>
@@ -76,7 +76,7 @@ const Contact: React.FC = () => {
                 <input 
                   type="text" 
                   placeholder="NAME"
-                  className="w-full h-24 bg-transparent border-b-2 border-kinetic-border focus:border-kinetic-accent outline-none font-display text-3xl md:text-5xl font-bold uppercase tracking-tighter placeholder:text-kinetic-muted transition-colors"
+                  className="w-full h-16 lg:h-24 bg-transparent border-b-2 border-kinetic-border focus:border-kinetic-accent outline-none font-display text-2xl lg:text-5xl font-bold uppercase tracking-tighter placeholder:text-kinetic-muted transition-colors"
                 />
               </div>
 
@@ -84,7 +84,7 @@ const Contact: React.FC = () => {
                 <input 
                   type="email" 
                   placeholder="EMAIL ADDRESS"
-                  className="w-full h-24 bg-transparent border-b-2 border-kinetic-border focus:border-kinetic-accent outline-none font-display text-3xl md:text-5xl font-bold uppercase tracking-tighter placeholder:text-kinetic-muted transition-colors"
+                  className="w-full h-16 lg:h-24 bg-transparent border-b-2 border-kinetic-border focus:border-kinetic-accent outline-none font-display text-2xl lg:text-5xl font-bold uppercase tracking-tighter placeholder:text-kinetic-muted transition-colors"
                 />
               </div>
 
@@ -92,7 +92,7 @@ const Contact: React.FC = () => {
                 <textarea 
                   placeholder="YOUR MESSAGE"
                   rows={3}
-                  className="w-full bg-transparent border-b-2 border-kinetic-border focus:border-kinetic-accent outline-none font-display text-3xl md:text-5xl font-bold uppercase tracking-tighter placeholder:text-kinetic-muted transition-colors resize-none py-4"
+                  className="w-full bg-transparent border-b-2 border-kinetic-border focus:border-kinetic-accent outline-none font-display text-2xl lg:text-5xl font-bold uppercase tracking-tighter placeholder:text-kinetic-muted transition-colors resize-none py-4"
                 />
               </div>
 
@@ -109,10 +109,10 @@ const Contact: React.FC = () => {
         </div>
 
         {/* Footer */}
-        <div className="mt-32 pt-16 border-t-2 border-kinetic-border flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-          <div className="font-display font-bold uppercase tracking-tighter flex items-center gap-4">
-            <span className="text-4xl text-kinetic-accent">HARSHIKA</span>
-            <span className="text-sm text-kinetic-muted-foreground">© 2026 // ALL RIGHTS RESERVED</span>
+        <div className="mt-20 lg:mt-32 pt-12 lg:pt-16 border-t-2 border-kinetic-border flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+          <div className="font-display font-bold uppercase tracking-tighter flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
+            <span className="text-3xl lg:text-4xl text-kinetic-accent leading-none">HARSHIKA</span>
+            <span className="text-[10px] lg:text-sm text-kinetic-muted-foreground">© 2026 // ALL RIGHTS RESERVED</span>
           </div>
           <div className="flex gap-8 font-display text-xs font-bold uppercase tracking-widest text-kinetic-muted-foreground">
             <a href="#landing" className="hover:text-kinetic-accent">Top</a>
@@ -124,7 +124,7 @@ const Contact: React.FC = () => {
 
       {/* Background Graphic */}
       <div className="absolute bottom-0 right-0 select-none pointer-events-none opacity-5">
-        <span className="font-display text-[20rem] font-bold leading-none tracking-tighter uppercase translate-y-1/2">
+        <span className="font-display text-[10rem] lg:text-[20rem] font-bold leading-none tracking-tighter uppercase translate-y-1/2">
           HELLO
         </span>
       </div>
