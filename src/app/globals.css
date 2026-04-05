@@ -12,7 +12,7 @@
   --color-kinetic-accent: #DFE104;
   --color-kinetic-accent-foreground: #000000;
   --color-kinetic-border: #3F3F46;
-  
+
   --color-black: #000000;
   --color-white: #FFFFFF;
 
@@ -141,10 +141,21 @@ body {
   color: var(--color-text-primary);
   line-height: 1.6;
   overflow-x: hidden;
-  margin-left: 70px;
-
-
 }
+
+@media (min-width: 1024px) {
+  body {
+    margin-left: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    margin-left: 50px;
+  }
+}
+
+
 
 h1,
 h2,
@@ -313,10 +324,6 @@ a {
   }
 
   .container {
-    padding: 0 16px;
-  }
-
-  body {
-    margin-left: 50px;
+    padding: 0 5%;
   }
 }
