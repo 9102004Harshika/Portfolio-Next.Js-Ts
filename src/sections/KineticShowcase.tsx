@@ -6,6 +6,8 @@ import KineticButton from "@/components/KineticButton";
 import KineticCard from "@/components/KineticCard";
 import KineticMarquee from "@/components/KineticMarquee";
 import { ArrowRight, Star, Zap, Code, Layout, Sparkles } from "lucide-react";
+import { SectionWrapper } from "@/components/animations/SectionWrapper";
+import { TextDecrypt } from "@/components/animations/TextDecrypt";
 
 export default function KineticShowcase() {
   const { scrollYProgress } = useScroll();
@@ -31,7 +33,7 @@ export default function KineticShowcase() {
   ];
 
   return (
-    <section className="relative min-h-screen bg-kinetic-bg text-kinetic-fg overflow-hidden border-t-2 border-kinetic-border">
+    <SectionWrapper className="bg-kinetic-bg text-kinetic-fg border-t-2 border-kinetic-border">
       {/* Hero Section */}
       <div className="relative z-10 py-32 px-4 md:px-8 flex flex-col items-start gap-12">
         <motion.div 
@@ -39,11 +41,13 @@ export default function KineticShowcase() {
           className="w-full flex flex-col gap-4"
         >
           <span className="font-display text-sm md:text-xl font-bold uppercase tracking-widest text-kinetic-accent">
-            Design System Integration
+            <TextDecrypt text="Design System Integration" delay={0.2} />
           </span>
           <h1 className="font-display text-[clamp(3.5rem,12vw,14rem)] font-bold uppercase tracking-tighter leading-[0.85] italic">
-            Kinetic<br />
-            <span className="text-kinetic-accent animate-pulse-glow">Type</span>graphy
+            <TextDecrypt text="Kinetic" delay={0.4} /><br />
+            <span className="text-kinetic-accent animate-pulse-glow">
+               <TextDecrypt text="Typography" delay={0.6} />
+            </span>
           </h1>
         </motion.div>
 
@@ -53,10 +57,10 @@ export default function KineticShowcase() {
           </p>
           <div className="flex flex-wrap gap-4 mt-auto">
             <KineticButton variant="primary" size="lg">
-              Explore Now <ArrowRight className="ml-4 h-6 w-6" />
+              GET_STARTED [EXEC] <ArrowRight className="ml-4 h-6 w-6" />
             </KineticButton>
             <KineticButton variant="outline" size="lg">
-              Documentation
+              SYSTEM_DOCS
             </KineticButton>
           </div>
         </div>
@@ -87,12 +91,12 @@ export default function KineticShowcase() {
 
       {/* Quotes Marquee */}
       <KineticMarquee speed={40} className="py-20">
-        <div className="flex items-center gap-12 italic text-kinetic-muted-foreground/40 text-5xl md:text-7xl">
-          <span>"TYPOGRAPHY IS NOT DECORATION"</span>
+        <div className="flex items-center gap-12 italic text-kinetic-muted-foreground/40 text-5xl md:text-7xl uppercase">
+          <span>"Typography is not decoration"</span>
           <Star className="h-12 w-12" />
-          <span>"MOTION IS RHYTHM"</span>
+          <span>"Motion is rhythm"</span>
           <Star className="h-12 w-12" />
-          <span>"EVERY ELEMENT IS ALIVE"</span>
+          <span>"Every element is alive"</span>
           <Star className="h-12 w-12" />
         </div>
       </KineticMarquee>
@@ -103,6 +107,6 @@ export default function KineticShowcase() {
           2026
         </span>
       </div>
-    </section>
+    </SectionWrapper>
   );
 }

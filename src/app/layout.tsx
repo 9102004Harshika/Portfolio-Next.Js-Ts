@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     "Portfolio of Harshika — building high-performance applications with clean architectures and memorable user experiences.",
 };
 
+import ClientLayout from "@/components/ClientLayout";
+import { CRTFilter } from "@/components/animations/CRTFilter";
+import Navbar from "@/components/Navbar";
+import Availability from "@/sections/Availability";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,8 +33,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={`${inter.variable} ${spaceGrotesk.variable} bg-kinetic-bg antialiased`} suppressHydrationWarning>
-        <div className="noise-overlay" suppressHydrationWarning />
-        {children}
+        <CRTFilter />
+        <Navbar />
+        <Availability />
+        <div className="h-14" /> {/* Spacer matched to marquee height to prevent overlap */}
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

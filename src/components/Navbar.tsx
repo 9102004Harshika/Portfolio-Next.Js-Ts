@@ -16,7 +16,20 @@ const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [time, setTime] = useState("");
+  const [randomDelay, setRandomDelay] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [latency, setLatency] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     const updateTime = () => {
@@ -24,6 +37,11 @@ const Navbar: React.FC = () => {
       setTime(now.toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit' }));
     };
     updateTime();
+    
+    // Set latency and initial state after mount
+    setLatency(Math.floor(Math.random() * 10 + 2));
+    setRandomDelay(Math.random() * 2);
+    
     const interval = setInterval(updateTime, 1000);
 
     const handleScroll = () => {
@@ -72,7 +90,7 @@ const Navbar: React.FC = () => {
           >
             <motion.span
               animate={{ x: [0, -2, 2, 0] }}
-              transition={{ repeat: Infinity, duration: 3, delay: Math.random() * 2 }}
+              transition={{ repeat: Infinity, duration: 3, delay: randomDelay }}
               className="relative z-10"
             >
               H.
@@ -81,10 +99,14 @@ const Navbar: React.FC = () => {
           </a>
 
           <div className="hidden lg:flex flex-col">
-            <span className="font-display text-[8px] font-bold text-kinetic-muted leading-tight uppercase tracking-widest">User_Authorized</span>
+            <span className="font-mono text-[7px] font-bold text-kinetic-muted leading-tight uppercase tracking-widest">
+              [UID: HARSHIKA_NODE_01]
+            </span>
             <div className="flex items-center gap-1.5">
               <div className="h-1.5 w-1.5 rounded-full bg-kinetic-accent animate-pulse shadow-[0_0_8px_var(--color-kinetic-accent)]" />
-              <span className="font-display text-[10px] font-black text-kinetic-fg tracking-tighter">OS_CONNECTED</span>
+              <span className="font-mono text-[9px] font-black text-kinetic-fg tracking-tighter uppercase">
+                Status: connected
+              </span>
             </div>
           </div>
         </div>
@@ -144,10 +166,12 @@ const Navbar: React.FC = () => {
         {/* HUD: Metadata / Time */}
         <div className="hidden sm:flex items-center gap-4 pl-4 border-l border-kinetic-border/50">
           <div className="flex flex-col items-end">
-            <span className="font-display text-[8px] font-bold text-kinetic-muted leading-tight uppercase tracking-widest">Local_Unit_Time</span>
+            <span className="font-mono text-[7px] font-bold text-kinetic-muted leading-tight uppercase tracking-widest">
+              [LATENCY: {latency !== null ? `${latency}ms` : "CALCULATING..."}]
+            </span>
             <div className="flex items-center gap-2">
               <Clock className="h-3 w-3 text-accent" />
-              <span className="font-display text-[10px] font-black text-kinetic-fg tracking-widest">{time}</span>
+              <span className="font-mono text-[10px] font-black text-kinetic-fg tracking-widest uppercase">{time}</span>
             </div>
           </div>
           <div className="bg-kinetic-muted/20 p-2 border border-kinetic-border rounded-lg group hover:border-accent transition-colors">
