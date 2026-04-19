@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import OSLoader from "./OSLoader";
 import { SystemLog } from "./SystemLog";
 import { motion, AnimatePresence } from "framer-motion";
+import FloatingAssistant from "./FloatingAssistant";
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -37,6 +38,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         {children}
         <SystemLog />
       </motion.div>
+      <FloatingAssistant />
     </>
   );
 }

@@ -19,35 +19,25 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "TaskFlow",
-    shortDesc: "A collaborative project management app with real-time updates and smart task prioritization.",
-    fullDesc: "TaskFlow is a full-featured project management platform designed for modern development teams. It features real-time collaboration powered by WebSockets, drag-and-drop kanban boards, smart AI-based task prioritization, and comprehensive project analytics.",
-    tags: ["React", "Node.js", "PostgreSQL", "WebSockets"],
-    github: "#",
-    live: "#",
+    title: "Cue AI Prompt Marketplace",
+    shortDesc: "A full-stack AI prompt marketplace with secure payments via Stripe.",
+    fullDesc: "Developed a full-stack AI prompt marketplace using React.js, Node.js, Express.js, and MongoDB. Integrated Stripe for secure payment processing, enhancing performance and efficiency by 30%.",
+    tags: ["React.js", "Node.js", "Express.js", "MongoDB", "Stripe"],
+    github: "https://github.com/9102004Harshika/CueAI",
   },
   {
-    title: "CodeLens",
-    shortDesc: "An AI-powered code review tool that identifies quality issues and suggests improvements.",
-    fullDesc: "CodeLens integrates directly into your development workflow to provide AI-driven code reviews. Using OpenAI's GPT models and custom fine-tuned analysis, it can detect code smells, suggest refactors, and ensure consistency with your project's style guide.",
-    tags: ["Python", "FastAPI", "OpenAI", "React"],
-    github: "#",
-    live: "#",
+    title: "Full Stack Finance Dashboard",
+    shortDesc: "Finance dashboard with machine learning for performance optimization.",
+    fullDesc: "Designed and implemented a finance dashboard using MERN stack and machine learning (linear regression) to enhance performance and efficiency by 40%.",
+    tags: ["MERN", "Machine Learning", "Linear Regression", "Node.js"],
+    live: "https://devpost.com/software/revinsight",
   },
   {
-    title: "DevConnect",
-    shortDesc: "A social platform for developers to share projects, collaborate, and find opportunities.",
-    fullDesc: "DevConnect is a purpose-built social platform for the developer community. Built with Next.js and GraphQL, it features project showcases, real-time messaging, skill-based matching, and community-driven code reviews.",
-    tags: ["Next.js", "GraphQL", "MongoDB", "TypeScript"],
-    github: "#",
-    live: "#",
-  },
-  {
-    title: "QuantumVault",
-    shortDesc: "A secure password manager with zero-knowledge encryption and cross-platform sync.",
-    fullDesc: "QuantumVault provides enterprise-grade password management with zero-knowledge architecture. All encryption happens client-side using AES-256-GCM, ensuring even the server never sees plaintext data.",
-    tags: ["Rust", "React Native", "SQLite", "AWS"],
-    github: "#",
+    title: "Real Time Code Editor",
+    shortDesc: "Collaborative code editor supporting up to 50 concurrent users.",
+    fullDesc: "Built a real-time collaborative code editor with React.js, Node.js, Express.js, MongoDB, and Socket.io, enabling simultaneous access for up to 50 users, boosting team productivity by 30%.",
+    tags: ["React.js", "Node.js", "Socket.io", "MongoDB"],
+    github: "https://github.com/9102004Harshika/realtimecode-editor",
   },
 ];
 
@@ -97,7 +87,7 @@ const Projects: React.FC = () => {
                 number={`0${idx + 1}`}
                 className="h-full"
               >
-                <div className="flex flex-wrap gap-3 mt-10">
+                <div className="flex overflow-x-auto whitespace-nowrap gap-3 mt-10 no-scrollbar">
                   {project.tags.map((tag) => (
                     <span 
                       key={tag}
@@ -151,7 +141,7 @@ const Projects: React.FC = () => {
 
               <div className="flex flex-col gap-4">
                 <span className="font-display text-[10px] font-bold uppercase tracking-widest text-kinetic-muted">Hardware Stack</span>
-                <div className="flex flex-wrap gap-2 lg:gap-3">
+                <div className="flex overflow-x-auto whitespace-nowrap gap-2 lg:gap-3 no-scrollbar">
                   {selectedProject.tags.map((tag) => (
                     <span key={tag} className="font-display text-[10px] lg:text-sm font-bold uppercase tracking-widest border-2 border-kinetic-border px-3 py-1.5 lg:px-4 lg:py-2 text-kinetic-fg bg-kinetic-muted/20">
                       {tag}

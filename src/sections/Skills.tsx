@@ -32,13 +32,21 @@ interface SkillGroup {
 
 const skillGroups: SkillGroup[] = [
   {
+    category: "Languages",
+    categoryIcon: <Code2 size={18} />,
+    skills: [
+      { name: "JavaScript", icon: <Code2 size={20} /> },
+      { name: "Python", icon: <Terminal size={20} /> },
+    ],
+  },
+  {
     category: "Frontend",
     categoryIcon: <Palette size={18} />,
     skills: [
-      { name: "React", icon: <Code2 size={20} /> },
-      { name: "TypeScript", icon: <Terminal size={20} /> },
-      { name: "Next.js", icon: <Globe size={20} /> },
+      { name: "React.js", icon: <Code2 size={20} /> },
+      { name: "Angular.js", icon: <Globe size={20} /> },
       { name: "HTML / CSS", icon: <Layers size={20} /> },
+      { name: "Tailwind CSS", icon: <Palette size={20} /> },
     ],
   },
   {
@@ -46,19 +54,9 @@ const skillGroups: SkillGroup[] = [
     categoryIcon: <Server size={18} />,
     skills: [
       { name: "Node.js", icon: <Server size={20} /> },
-      { name: "Python", icon: <Terminal size={20} /> },
-      { name: "PostgreSQL", icon: <Database size={20} /> },
-      { name: "REST APIs", icon: <Globe size={20} /> },
-    ],
-  },
-  {
-    category: "Tools",
-    categoryIcon: <Wrench size={18} />,
-    skills: [
-      { name: "Git", icon: <GitBranch size={20} /> },
-      { name: "Docker", icon: <Container size={20} /> },
-      { name: "Figma", icon: <Figma size={20} /> },
-      { name: "AWS", icon: <Cloud size={20} /> },
+      { name: "Express.js", icon: <Globe size={20} /> },
+      { name: "MongoDB", icon: <Database size={20} /> },
+      { name: "MySQL", icon: <Database size={20} /> },
     ],
   },
 ];

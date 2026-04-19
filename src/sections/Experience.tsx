@@ -7,22 +7,16 @@ import { TextDecrypt } from "@/components/animations/TextDecrypt";
 
 const experiences = [
   {
-    role: "Senior Frontend Developer",
-    company: "TechCorp",
+    role: "Freelance Developer",
+    company: "Shri Kalam Academy",
     duration: "2024 — Present",
-    description: "Leading frontend architecture for a SaaS platform serving 50K+ users. Implemented component library, CI/CD pipelines, and reduced bundle size by 40% through code splitting and lazy loading.",
+    description: "Developing an enterprise-level Learning Management System (LMS) application using the MERN stack for web and Android for mobile platforms. Collaborating with stakeholders to ensure seamless functionality and user experience.",
   },
   {
-    role: "Full-Stack Developer",
-    company: "InnovateLab",
-    duration: "2022 — 2024",
-    description: "Built end-to-end features for an AI-powered analytics platform. Designed RESTful APIs with Node.js, implemented real-time dashboards with React, and managed PostgreSQL databases.",
-  },
-  {
-    role: "Junior Developer",
-    company: "StartupHub",
-    duration: "2020 — 2022",
-    description: "Contributed to multiple client projects across web and mobile. Developed responsive UIs, integrated third-party APIs, and collaborated in agile sprints.",
+    role: "Full Stack Developer Intern",
+    company: "Devtown",
+    duration: "2023 — 2023",
+    description: "Developed and deployed production-grade applications using the MERN Stack (MongoDB, Express.js, React.js, and Node.js). Gained hands-on experience by working in team and also learned about DevOps.",
   },
 ];
 

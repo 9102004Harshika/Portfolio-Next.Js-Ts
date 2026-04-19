@@ -22,6 +22,7 @@ export const metadata: Metadata = {
 
 import ClientLayout from "@/components/ClientLayout";
 import { CRTFilter } from "@/components/animations/CRTFilter";
+import { CustomCursor } from "@/components/animations/CustomCursor";
 import Navbar from "@/components/Navbar";
 import Availability from "@/sections/Availability";
 
@@ -33,6 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={`${inter.variable} ${spaceGrotesk.variable} bg-kinetic-bg antialiased`} suppressHydrationWarning>
+        <CustomCursor />
         <CRTFilter />
         <Navbar />
         <Availability />

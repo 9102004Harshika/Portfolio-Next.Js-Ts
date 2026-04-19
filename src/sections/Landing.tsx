@@ -21,8 +21,7 @@ const Landing: React.FC = () => {
     setLogs(newLogs);
   }, []);
 
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -200]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const yParallax = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   return (
     <SectionWrapper 
@@ -51,7 +50,7 @@ const Landing: React.FC = () => {
                   <TextDecrypt text="[MODULE_ID: 0x01_CORE_IDENTITY]" delay={0.3} />
                 </span>
                 <span className="font-display text-sm md:text-base font-bold uppercase tracking-widest text-kinetic-accent ml-auto">
-                  <TextDecrypt text="Full-Stack Developer & Creative Technologist" delay={0.6} />
+                  <TextDecrypt text="Full Stack Web Developer" delay={0.6} />
                 </span>
               </div>
 
@@ -88,7 +87,7 @@ const Landing: React.FC = () => {
           <div className="lg:col-span-4 relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] order-first lg:order-last lg:-translate-x-12">
             {/* Frame */}
             <motion.div
-              style={{ y: y1 }}
+              style={{ y: yParallax }}
               variants={{
                 hidden: { opacity: 0, rotate: -12, scale: 0.8 },
                 visible: { 
@@ -98,7 +97,7 @@ const Landing: React.FC = () => {
                   transition: {
                     duration: 1.2,
                     ease: [0.22, 1, 0.36, 1],
-                    delay: 0.4
+                    delay: 0.5
                   }
                 }
               }}
@@ -107,7 +106,7 @@ const Landing: React.FC = () => {
 
             {/* Image Container with Reveal Animation */}
             <motion.div
-              style={{ y: y2 }}
+              style={{ y: yParallax }}
               variants={{
                 hidden: { 
                   opacity: 0, 
@@ -119,9 +118,9 @@ const Landing: React.FC = () => {
                   clipPath: "inset(0% 0 0 0)",
                   scale: 1,
                   transition: {
-                    duration: 1.4,
+                    duration: 1.2,
                     ease: [0.22, 1, 0.36, 1],
-                    delay: 0.6,
+                    delay: 0.5,
                   }
                 }
               }}
@@ -143,8 +142,8 @@ const Landing: React.FC = () => {
                     top: "100%", 
                     opacity: [0, 1, 0],
                     transition: { 
-                      duration: 1.4, 
-                      delay: 0.6, 
+                      duration: 1.2, 
+                      delay: 0.5, 
                       ease: "linear" 
                     }
                   }

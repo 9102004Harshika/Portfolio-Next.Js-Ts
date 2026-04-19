@@ -228,6 +228,17 @@ body {
   margin-left: 70px;
 }
 
+/* ─── Cursor ─── */
+@media (pointer: fine) {
+  body,
+  a,
+  button,
+  [role="button"] {
+    cursor: none !important;
+  }
+}
+
+
 
 
 
@@ -409,6 +420,15 @@ a {
 ::selection {
   background: rgba(223, 225, 4, 0.3);
   color: var(--color-text-primary);
+}
+
+/* ─── Utilities ─── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* ─── Responsive ─── */

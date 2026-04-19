@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import FloatingAssistant from "@/components/FloatingAssistant";
+
 import KineticShowcase from "@/sections/KineticShowcase";
 import Landing from "@/sections/Landing";
 import About from "@/sections/About";
@@ -21,7 +21,7 @@ export default function Home() {
         <Experience />
         <Contact />
       </main>
-      <FloatingAssistant />
+
     </>
   );
 }

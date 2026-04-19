@@ -8,9 +8,9 @@ import { TextDecrypt } from "@/components/animations/TextDecrypt";
 import { SectionWrapper } from "@/components/animations/SectionWrapper";
 
 const socialLinks = [
-  { icon: <Github size={24} />, href: "#", label: "GITHUB" },
-  { icon: <Linkedin size={24} />, href: "#", label: "LINKEDIN" },
-  { icon: <Twitter size={24} />, href: "#", label: "TWITTER" },
+  { icon: <Github size={24} />, href: "https://github.com/9102004Harshika", label: "GITHUB" },
+  { icon: <Linkedin size={24} />, href: "https://www.linkedin.com/in/harshikagawade/", label: "LINKEDIN" },
+  { icon: <Twitter size={24} />, href: "mailto:harshikagawade@gmail.com", label: "EMAIL" },
 ];
 
 const Contact: React.FC = () => {

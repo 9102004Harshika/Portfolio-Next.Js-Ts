@@ -7,9 +7,9 @@ import { TextDecrypt } from "@/components/animations/TextDecrypt";
 
 const About: React.FC = () => {
   const stats = [
-    { value: "3+", label: "YEARS EXPERIENCE", number: "01" },
-    { value: "20+", label: "PROJECTS BUILT", number: "02" },
-    { value: "10+", label: "TECHNOLOGIES", number: "03" },
+    { value: "01", label: "YEARS EXPERIENCE", number: "01" },
+    { value: "3", label: "PROJECTS BUILT", number: "02" },
+    { value: "15+", label: "TECHNOLOGIES", number: "03" },
   ];
 
   return (
@@ -31,13 +31,10 @@ const About: React.FC = () => {
 
               <div className="flex flex-col gap-6 max-w-2xl font-sans text-xl md:text-2xl text-kinetic-muted-foreground leading-tight">
                 <p>
-                  I&apos;m a passionate full-stack developer with a deep love for
-                  crafting elegant solutions to complex problems. My journey in tech
-                  evolved into a mission to build products that are technically excellent and delightful to use.
+                  I&apos;m an entry-level Full Stack Web Developer with a strong foundation in the MERN stack. My passion lies in creating seamless web and mobile solutions that bridge the gap between complex functionality and intuitive user experience.
                 </p>
                 <p>
-                  With experience spanning frontend frameworks, backend systems, and
-                  cloud infrastructure, I bring a holistic approach to every project, focused on clean architecture and relentless attention to detail.
+                  With expertise in JavaScript and Python, I've built everything from enterprise-level Learning Management Systems to AI-powered financial dashboards. I thrive in collaborative environments and am always looking for ways to push the boundaries of what's possible in tech.
                 </p>
               </div>
             </div>
@@ -52,21 +49,21 @@ const About: React.FC = () => {
               <div className="font-display text-sm md:text-base leading-relaxed overflow-x-auto whitespace-pre-wrap">
                 <span className="text-kinetic-accent font-bold">const</span> <span className="text-kinetic-fg">harshika</span> = &#123;
                 <br />
-                &nbsp;&nbsp;<span className="text-kinetic-muted-foreground">role</span>: <span className="text-kinetic-accent">&quot;Full-Stack Developer&quot;</span>,
+                &nbsp;&nbsp;<span className="text-kinetic-muted-foreground">role</span>: <span className="text-kinetic-accent">&quot;Full-Stack Web Developer&quot;</span>,
                 <br />
-                &nbsp;&nbsp;<span className="text-kinetic-muted-foreground">passion</span>: <span className="text-kinetic-accent">&quot;Creative Tech&quot;</span>,
+                &nbsp;&nbsp;<span className="text-kinetic-muted-foreground">stack</span>: <span className="text-kinetic-accent">&quot;MERN & Python&quot;</span>,
                 <br />
                 &nbsp;&nbsp;<span className="text-kinetic-muted-foreground">focus</span>: [
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-kinetic-accent">&quot;Clean Architecture&quot;</span>,
+                &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-kinetic-accent">&quot;LMS Development&quot;</span>,
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-kinetic-accent">&quot;User Experience&quot;</span>,
+                &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-kinetic-accent">&quot;AI & ML Integration&quot;</span>,
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-kinetic-accent">&quot;Performance&quot;</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-kinetic-accent">&quot;Clean Architecture&quot;</span>
                 <br />
                 &nbsp;&nbsp;],
                 <br />
-                &nbsp;&nbsp;<span className="text-kinetic-muted-foreground">motto</span>: <span className="text-kinetic-accent">&quot;Build it right.&quot;</span>
+                &nbsp;&nbsp;<span className="text-kinetic-muted-foreground">motto</span>: <span className="text-kinetic-accent">&quot;Build to Scale.&quot;</span>
                 <br />
                 &#125;;
               </div>
@@ -79,6 +76,53 @@ const About: React.FC = () => {
               </span>
             </div>
           </div>
+        </div>
+
+        {/* Education & Achievements Grid */}
+        <div className="mt-20 lg:mt-32 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
+           <motion.div
+             initial={{ opacity: 0, y: 30 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             transition={{ delay: 0.2 }}
+             viewport={{ once: true }}
+           >
+            <KineticCard title="Education" className="min-h-[250px] border-kinetic-border/50">
+                <div className="flex flex-col gap-4">
+                  <h3 className="font-display text-2xl lg:text-3xl font-bold uppercase tracking-tighter text-kinetic-fg leading-none">B.Sc. Computer Science</h3>
+                  <div className="flex flex-col">
+                    <span className="font-display text-xs lg:text-sm font-bold uppercase tracking-widest text-kinetic-accent">2022 — 2025</span>
+                    <span className="font-mono text-[10px] font-bold text-kinetic-muted-foreground uppercase opacity-60">GPA: 9.3 / 10.0</span>
+                  </div>
+                  <p className="font-sans text-base lg:text-lg text-kinetic-muted-foreground leading-snug">
+                    Thakur College of Science & Commerce, Mumbai
+                  </p>
+                </div>
+            </KineticCard>
+           </motion.div>
+
+           <motion.div
+             initial={{ opacity: 0, y: 30 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             transition={{ delay: 0.4 }}
+             viewport={{ once: true }}
+           >
+            <KineticCard title="Achievement_Log" className="min-h-[250px] border-kinetic-border/50">
+                <div className="flex flex-col gap-6">
+                  <div className="flex flex-col gap-2">
+                    <span className="font-display text-sm lg:text-lg font-bold uppercase tracking-tight text-kinetic-accent leading-none">Published Author</span>
+                    <p className="font-sans text-sm lg:text-base text-kinetic-muted-foreground leading-snug">
+                      Authored a technical book on Data Communication and Networking, available on Amazon.
+                    </p>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <span className="font-display text-sm lg:text-lg font-bold uppercase tracking-tight text-kinetic-accent leading-none">Top 20 Elite Intern</span>
+                    <p className="font-sans text-sm lg:text-base text-kinetic-muted-foreground leading-snug">
+                      Ranked in the Top 20 Interns out of 250+ candidates during the Devtown internship.
+                    </p>
+                  </div>
+                </div>
+            </KineticCard>
+           </motion.div>
         </div>
 
         {/* Stats Grid - Centered & Balanced */}
