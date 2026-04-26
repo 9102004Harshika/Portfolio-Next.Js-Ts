@@ -50,12 +50,12 @@ const Landing: React.FC = () => {
                   <TextDecrypt text="[MODULE_ID: 0x01_CORE_IDENTITY]" delay={0.3} />
                 </span>
                 <span className="font-display text-sm md:text-base font-bold uppercase tracking-widest text-kinetic-accent ml-auto">
-                  <TextDecrypt text="Full Stack Web Developer" delay={0.6} />
+                  <TextDecrypt text="Full Stack Developer" delay={0.6} />
                 </span>
               </div>
 
-              <h1 className="font-display text-[clamp(3.5rem,10vw,7.5rem)] font-bold uppercase tracking-tighter leading-[0.85] lg:leading-none mix-blend-difference" suppressHydrationWarning={true}>
-                <TextDecrypt text="HARSHIKA." duration={2} delay={0.8} />
+              <h1 className="font-display text-[clamp(2.5rem,8vw,7.5rem)] font-bold uppercase tracking-tighter leading-[0.85] lg:leading-none mix-blend-difference" suppressHydrationWarning={true}>
+                <TextDecrypt text="HARSHIKA GAWADE." duration={2} delay={0.8} />
               </h1>
             </div>
 
@@ -128,7 +128,7 @@ const Landing: React.FC = () => {
             >
               <Image
                 src="/assets/harshika_themed.png"
-                alt="Harshika"
+                alt="Harshika Gawade - Full Stack Developer"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 30vw"
                 className="object-contain filter contrast-110 brightness-110"
