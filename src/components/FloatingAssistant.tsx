@@ -17,12 +17,15 @@ const FloatingAssistant: React.FC = () => {
     { type: "response", content: "ESTABLISHING SECURE TUNNEL... [OK]" },
     { type: "response", content: "Welcome, Guest. Type 'help' to see available commands." },
   ]);
+  const [commandHistory, setCommandHistory] = useState<string[]>([]);
+  const [historyIndex, setHistoryIndex] = useState(-1);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
+      setTimeout(() => inputRef.current?.focus(), 100);
     } else {
       document.body.style.overflow = "";
     }
@@ -41,6 +44,12 @@ const FloatingAssistant: React.FC = () => {
     const command = cmd.trim().toLowerCase();
     const newHistory: HistoryItem[] = [...history, { type: "command", content: cmd }];
 
+    // Add to command history if not empty and not same as last
+    if (cmd.trim() && commandHistory[commandHistory.length - 1] !== cmd.trim()) {
+      setCommandHistory(prev => [...prev, cmd.trim()]);
+    }
+    setHistoryIndex(-1);
+
     switch (command) {
       case "help":
         newHistory.push({
@@ -51,6 +60,8 @@ const FloatingAssistant: React.FC = () => {
               <span>- whoami: Identity display</span>
               <span>- cat about: Show bio</span>
               <span>- cat contact: Show contact info</span>
+              <span>- cat projects: Show portfolio works</span>
+              <span>- cat skills: Display technical stack</span>
               <span>- clear: Reset terminal buffer</span>
               <span>- exit: Terminate session</span>
               <span>- neofetch: System summary</span>
@@ -65,10 +76,42 @@ const FloatingAssistant: React.FC = () => {
         newHistory.push({ type: "response", content: "Harshika | Full-Stack Developer & Creative Technologist" });
         break;
       case "cat about":
+      case "cat about.md":
         newHistory.push({ type: "response", content: "A developer focused on building high-performance applications with clean architectures and memorable user experiences. Specialist in Next.js, React, and Node.js." });
         break;
       case "cat contact":
+      case "cat contact.txt":
         newHistory.push({ type: "response", content: "Email: hello@harshika.dev | Github: @9102004Harshika" });
+        break;
+      case "cat projects":
+      case "cat projects.sh":
+        newHistory.push({
+          type: "response",
+          content: (
+            <div className="flex flex-col gap-1">
+              <span className="text-kinetic-accent">[EXECUTING: projects.sh]</span>
+              <span>-----------------------</span>
+              <span>- Cue AI Prompt Marketplace: Full-stack AI prompt marketplace (React, Node, MongoDB, Stripe)</span>
+              <span>- Full Stack Finance Dashboard: ML-powered finance dashboard (MERN, Linear Regression)</span>
+              <span>- Real Time Code Editor: Collaborative editor (Socket.io, React, Node)</span>
+            </div>
+          ),
+        });
+        break;
+      case "cat skills":
+      case "cat skills.bin":
+        newHistory.push({
+          type: "response",
+          content: (
+            <div className="flex flex-col gap-1">
+              <span className="text-kinetic-accent">[READING: skills.bin]</span>
+              <span>--------------------</span>
+              <span>- LANGUAGES: JavaScript, Python, Java</span>
+              <span>- FRONTEND: React.js, Angular.js, HTML/CSS, Tailwind</span>
+              <span>- BACKEND: Node.js, Express.js, MongoDB, MySQL</span>
+            </div>
+          ),
+        });
         break;
       case "neofetch":
         newHistory.push({
@@ -76,11 +119,11 @@ const FloatingAssistant: React.FC = () => {
           content: (
             <div className="flex gap-4">
               <div className="text-kinetic-accent font-bold">
-                <pre>{`  ____
- |  _ \\
- | |_) |
- |  _ <
- |_| \\_\\`}</pre>
+                <pre>{`  _   _
+ | | | |
+ | |_| |
+ |  _  |
+ |_| |_|`}</pre>
               </div>
               <div className="flex flex-col gap-0.5">
                 <span className="text-kinetic-accent font-bold">harshika@portfolio</span>
@@ -113,6 +156,29 @@ const FloatingAssistant: React.FC = () => {
     setInput("");
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowUp") {
+      e.preventDefault();
+      if (commandHistory.length > 0) {
+        const newIndex = historyIndex + 1;
+        if (newIndex < commandHistory.length) {
+          setHistoryIndex(newIndex);
+          setInput(commandHistory[commandHistory.length - 1 - newIndex]);
+        }
+      }
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      if (historyIndex > 0) {
+        const newIndex = historyIndex - 1;
+        setHistoryIndex(newIndex);
+        setInput(commandHistory[commandHistory.length - 1 - newIndex]);
+      } else if (historyIndex === 0) {
+        setHistoryIndex(-1);
+        setInput("");
+      }
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (input.trim()) {
@@ -137,9 +203,9 @@ const FloatingAssistant: React.FC = () => {
                 <Terminal size={18} className="text-kinetic-accent" />
                 <span className="font-mono text-sm font-bold tracking-[0.2em] text-kinetic-fg uppercase flex items-center gap-3">
                   SYSTEM_TERMINAL // SESSION_ACTIVE
-                  <span className="relative flex h-2.5 w-2.5">
+                  <span className="relative flex h-3 w-3 items-center justify-center">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-kinetic-accent opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-kinetic-accent"></span>
+                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-kinetic-accent"></span>
                   </span>
                 </span>
               </div>
@@ -190,6 +256,7 @@ const FloatingAssistant: React.FC = () => {
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={handleKeyDown}
                   className="flex-1 bg-transparent border-none outline-none text-white terminal-text caret-kinetic-accent"
                   autoFocus
                   spellCheck={false}

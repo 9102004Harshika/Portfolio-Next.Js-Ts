@@ -10,22 +10,20 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-interface KineticCardProps extends React.HTMLAttributes<HTMLDivElement> {
+interface AboutCardProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   description?: string;
   number?: string;
-  justify?: "center" | "start" | "between";
 }
 
-export default function KineticCard({
+export default function AboutCard({
   title,
   description,
   number,
-  justify = "center",
   className,
   children,
   ...props
-}: KineticCardProps) {
+}: AboutCardProps) {
   const MotionDiv = motion.div as any;
 
   return (
@@ -66,9 +64,7 @@ export default function KineticCard({
         </div>
       </div>
 
-      <div className={cn(
-        "relative flex-1 p-8 md:p-10 lg:p-12 flex flex-col min-h-[300px] justify-center gap-8 overflow-hidden bg-[radial-gradient(circle_at_50%_50%,rgba(223,225,4,0.03)_0%,transparent_100%)]",
-      )}>
+      <div className="relative flex-1 p-8 md:p-10 lg:p-12 flex flex-col justify-center min-h-[300px] gap-8 overflow-hidden bg-[radial-gradient(circle_at_50%_50%,rgba(223,225,4,0.03)_0%,transparent_100%)]">
         {/* Dot Grid Background */}
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none select-none bg-[radial-gradient(var(--color-kinetic-border)_1px,transparent_1px)] bg-[size:16px_16px]" />
 
@@ -103,22 +99,15 @@ export default function KineticCard({
                 </p>
               )}
               
+              {children && (
+                <div className="transition-colors duration-500">
+                  {children}
+                </div>
+              )}
             </div>
           </div>
         </div>
       </div>
-
-      {children && (
-        <div className="mt-auto border-t-2 border-kinetic-border bg-kinetic-muted/10 p-6 md:px-10 lg:px-12 flex flex-col gap-3 group-hover:border-kinetic-accent transition-colors duration-500">
-          <div className="flex items-center justify-between">
-             <span className="font-mono text-[8px] font-bold tracking-[0.4em] uppercase text-kinetic-muted-foreground opacity-50">RESOURCE_ALLOCATION</span>
-             <span className="font-mono text-[8px] font-bold tracking-widest text-kinetic-accent">OK</span>
-          </div>
-          <div className="transition-colors duration-500">
-            {children}
-          </div>
-        </div>
-      )}
       
       {/* Corner accents */}
       <div className="absolute bottom-0 left-0 w-2 h-2 border-l-2 border-b-2 border-kinetic-border transition-colors group-hover:border-kinetic-accent" />

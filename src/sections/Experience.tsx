@@ -7,16 +7,22 @@ import { TextDecrypt } from "@/components/animations/TextDecrypt";
 
 const experiences = [
   {
+    role: "ML Engineer and Software Developer",
+    company: "Inkstall Educare Pvt Limited",
+    duration: "10/2025 — Current",
+    description: "Developing an enterprise-level Systems for the students merchandise. Collaborating with stakeholders to ensure seamless functionality and user experience and make learning a better experience for students across the globe.",
+  },
+  {
     role: "Freelance Developer",
     company: "Shri Kalam Academy",
-    duration: "2024 — Present",
+    duration: "11/2024 — 04/2025",
     description: "Developing an enterprise-level Learning Management System (LMS) application using the MERN stack for web and Android for mobile platforms. Collaborating with stakeholders to ensure seamless functionality and user experience.",
   },
   {
-    role: "Full Stack Developer Intern",
+    role: "Full Stack Web Developer Intern",
     company: "Devtown",
-    duration: "2023 — 2023",
-    description: "Developed and deployed production-grade applications using the MERN Stack (MongoDB, Express.js, React.js, and Node.js). Gained hands-on experience by working in team and also learned about DevOps.",
+    duration: "11/2024 — 04/2025",
+    description: "Developed and deployed production-grade applications using the MERN Stack (MongoDB, Express.js, React, and Node.js). Gained hands-on experience by working in team and also learned about DevOps.",
   },
 ];
 

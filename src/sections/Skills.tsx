@@ -37,6 +37,7 @@ const skillGroups: SkillGroup[] = [
     skills: [
       { name: "JavaScript", icon: <Code2 size={20} /> },
       { name: "Python", icon: <Terminal size={20} /> },
+      { name: "Java", icon: <Code2 size={20} /> },
     ],
   },
   {

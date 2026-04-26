@@ -130,6 +130,7 @@ const Landing: React.FC = () => {
                 src="/assets/harshika_themed.png"
                 alt="Harshika"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 30vw"
                 className="object-contain filter contrast-110 brightness-110"
                 priority
               />

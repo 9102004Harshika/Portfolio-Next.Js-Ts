@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import KineticCard from "@/components/KineticCard";
+import AboutCard from "@/components/AboutCard";
 import { SectionWrapper } from "@/components/animations/SectionWrapper";
 import { TextDecrypt } from "@/components/animations/TextDecrypt";
 
@@ -13,8 +13,8 @@ const About: React.FC = () => {
   ];
 
   return (
-    <SectionWrapper id="about" className="py-20 lg:py-32 px-4 lg:px-20">
-      <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10 w-full" suppressHydrationWarning={true}>
+    <SectionWrapper id="about" className="py-24 lg:py-40 px-4 lg:px-20">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10 w-full flex flex-col gap-20 lg:gap-32" suppressHydrationWarning={true}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Side: Story */}
           <div className="lg:col-span-7 flex flex-col gap-12 relative">
@@ -42,9 +42,9 @@ const About: React.FC = () => {
 
           {/* Right Side: Brutalist Code Card */}
           <div className="lg:col-span-5 relative">
-            <KineticCard
+            <AboutCard
               title="System Info"
-              className="min-h-[500px] border-kinetic-accent/50"
+              className="min-h-[500px]"
             >
               <div className="font-display text-sm md:text-base leading-relaxed overflow-x-auto whitespace-pre-wrap">
                 <span className="text-kinetic-accent font-bold">const</span> <span className="text-kinetic-fg">harshika</span> = &#123;
@@ -67,7 +67,7 @@ const About: React.FC = () => {
                 <br />
                 &#125;;
               </div>
-            </KineticCard>
+            </AboutCard>
 
             {/* Background Massive Number */}
             <div className="absolute -top-6 -right-6 lg:-top-12 lg:-right-12 select-none pointer-events-none opacity-5">
@@ -79,15 +79,15 @@ const About: React.FC = () => {
         </div>
 
         {/* Education & Achievements Grid */}
-        <div className="mt-20 lg:mt-32 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
            <motion.div
              initial={{ opacity: 0, y: 30 }}
              whileInView={{ opacity: 1, y: 0 }}
              transition={{ delay: 0.2 }}
              viewport={{ once: true }}
            >
-            <KineticCard title="Education" className="min-h-[250px] border-kinetic-border/50">
-                <div className="flex flex-col gap-4">
+            <AboutCard title="Education" className="min-h-[250px]" number="01">
+                <div className="flex flex-col gap-6">
                   <h3 className="font-display text-2xl lg:text-3xl font-bold uppercase tracking-tighter text-kinetic-fg leading-none">B.Sc. Computer Science</h3>
                   <div className="flex flex-col">
                     <span className="font-display text-xs lg:text-sm font-bold uppercase tracking-widest text-kinetic-accent">2022 — 2025</span>
@@ -97,7 +97,7 @@ const About: React.FC = () => {
                     Thakur College of Science & Commerce, Mumbai
                   </p>
                 </div>
-            </KineticCard>
+            </AboutCard>
            </motion.div>
 
            <motion.div
@@ -106,8 +106,8 @@ const About: React.FC = () => {
              transition={{ delay: 0.4 }}
              viewport={{ once: true }}
            >
-            <KineticCard title="Achievement_Log" className="min-h-[250px] border-kinetic-border/50">
-                <div className="flex flex-col gap-6">
+            <AboutCard title="Achievement_Log" className="min-h-[250px]" number="02">
+                <div className="flex flex-col gap-8">
                   <div className="flex flex-col gap-2">
                     <span className="font-display text-sm lg:text-lg font-bold uppercase tracking-tight text-kinetic-accent leading-none">Published Author</span>
                     <p className="font-sans text-sm lg:text-base text-kinetic-muted-foreground leading-snug">
@@ -121,12 +121,12 @@ const About: React.FC = () => {
                     </p>
                   </div>
                 </div>
-            </KineticCard>
+            </AboutCard>
            </motion.div>
         </div>
 
         {/* Stats Grid - Centered & Balanced */}
-        <div className="mt-32 lg:mt-64 w-full flex justify-center">
+        <div className="w-full flex justify-center">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl" suppressHydrationWarning>
             {stats.map((stat, i) => (
               <motion.div 
@@ -134,7 +134,7 @@ const About: React.FC = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 + i * 0.1 }}
-                className="flex flex-col items-center text-center gap-4 py-12 px-6 lg:py-[40px] lg:px-12 border-2 border-kinetic-border hover:border-kinetic-accent hover:bg-kinetic-accent hover:text-black transition-all duration-500 group relative overflow-hidden"
+                className="flex flex-col items-center text-center gap-6 py-16 px-8 lg:py-20 lg:px-12 border-2 border-kinetic-border hover:border-kinetic-accent hover:bg-kinetic-accent hover:text-black transition-all duration-500 group relative overflow-hidden"
                 suppressHydrationWarning={true}
               >
                 <div className="font-display text-5xl lg:text-7xl font-bold group-hover:scale-110 transition-transform duration-500 relative z-10 leading-none" suppressHydrationWarning={true}>

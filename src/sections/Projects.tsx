@@ -15,6 +15,7 @@ interface Project {
   tags: string[];
   github?: string;
   live?: string;
+  isCollaboration?: boolean;
 }
 
 const projects: Project[] = [
@@ -38,6 +39,7 @@ const projects: Project[] = [
     fullDesc: "Built a real-time collaborative code editor with React.js, Node.js, Express.js, MongoDB, and Socket.io, enabling simultaneous access for up to 50 users, boosting team productivity by 30%.",
     tags: ["React.js", "Node.js", "Socket.io", "MongoDB"],
     github: "https://github.com/9102004Harshika/realtimecode-editor",
+    isCollaboration: true,
   },
 ];
 
@@ -70,7 +72,7 @@ const Projects: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 auto-rows-fr">
           {projects.map((project, idx) => (
             <motion.div
               key={project.title}
@@ -79,13 +81,25 @@ const Projects: React.FC = () => {
               transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.6 + idx * 0.1 }}
               viewport={{ once: true }}
               onClick={() => setSelectedProject(project)}
-              className="cursor-pointer"
+              className="cursor-pointer h-full relative"
             >
+              {project.isCollaboration && (
+                <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-kinetic-accent opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-kinetic-accent"></span>
+                  </span>
+                  <span className="font-mono text-[9px] font-bold text-kinetic-accent uppercase tracking-widest bg-black/40 backdrop-blur-sm px-2 py-1">
+                    COLLAB_ACTIVE
+                  </span>
+                </div>
+              )}
               <KineticCard
                 title={project.title}
                 description={project.shortDesc}
                 number={`0${idx + 1}`}
                 className="h-full"
+                justify="start"
               >
                 <div className="flex overflow-x-auto whitespace-nowrap gap-3 mt-10 no-scrollbar">
                   {project.tags.map((tag) => (
