@@ -48,7 +48,7 @@ const Contact: React.FC = () => {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "c7eb0995-2b42-4d3c-a059-05cd2aeb5731",
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "c7eb0995-2b42-4d3c-a059-05cd2aeb5731",
           name: formData.name,
           email: formData.email,
           message: formData.message,
