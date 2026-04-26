@@ -71,6 +71,9 @@ export const metadata: Metadata = {
     images: ["/assets/harshika_themed.png"],
     creator: "@harshikagawade",
   },
+  verification: {
+    google: "x3QfF1W-RSdpUwADkjE_SeJ4OpLzrwcquYvIMSBNSrA",
+  },
 };
 
 import ClientLayout from "@/components/ClientLayout";
